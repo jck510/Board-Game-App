@@ -1,5 +1,6 @@
 import React from 'react'
 import BoardSpace from './BoardSpace'
+import CenterBoard from './CenterBoard'
 
 let BoardSpaces = [
     {spaceNumber: 0, spaceName: 'The Shop', spaceType: 'Start', currentSpace: true},
@@ -30,11 +31,14 @@ let BoardSpaces = [
 const MainBoard = () => {
   return (
     <div>
-        <div>MainBoard</div>
-        <div>
+        <div className='main-board-wrapper'>
+        <div className='main-board'>
             {BoardSpaces.map((space, index) => (
-                <BoardSpace key={index} spaceName={space.spaceName} location={space.spaceNumber} currentSpace={space.currentSpace}/>
+                <BoardSpace key={index} spaceName={space.spaceName} spaceType={space.spaceType} location={space.spaceNumber} currentSpace={space.currentSpace}/>
             ))}
+        </div>
+
+        <CenterBoard />
         </div>
     </div>
   )

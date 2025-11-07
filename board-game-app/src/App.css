@@ -40,3 +40,185 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.main-board-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.main-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7,80px); /* 7 across */
+  grid-template-rows: repeat(6, 80px); /* 6 down */
+  gap: 5px;
+  margin-top: 40px auto;
+  background-color: #f8f8f8;
+  width: max-content;
+  padding: 10px;
+
+}
+
+
+.board-space {
+  background: lightblue;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:bold;
+}
+
+
+
+/* Board Layout */
+
+/* Center of The Board */
+
+.center-main-board {
+  position: absolute;
+  width: calc(80px * 5 + 5px * 4);
+  height: calc(80px * 4 + 5px * 3);
+  background: gold;
+  grid-column: 2 / 7; /* goes from column 2 to column 6 */
+  grid-row: 2 / 6; /* goes from row 2 to row 5 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 2px solid #333;
+}
+
+
+/* Top Row (1 - 7) */
+.board-space:nth-child(1){
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.board-space:nth-child(2){
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.board-space:nth-child(3){
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.board-space:nth-child(4){
+  grid-row: 1;
+  grid-column: 4;
+}
+
+.board-space:nth-child(5){
+  grid-row: 1;
+  grid-column: 5;
+}
+
+.board-space:nth-child(6){
+  grid-row: 1;
+  grid-column: 6;
+}
+
+.board-space:nth-child(7){
+  grid-row: 1;
+  grid-column: 7;
+}
+
+/* Right side (space 8 - 11) */
+.board-space:nth-child(8){
+  grid-row: 2;
+  grid-column: 7;
+}
+
+.board-space:nth-child(9){
+  grid-row: 3;
+  grid-column: 7;
+}
+
+.board-space:nth-child(10){
+  grid-row: 4;
+  grid-column: 7;
+}
+
+.board-space:nth-child(11){
+  grid-row: 5;
+  grid-column: 7;
+}
+
+
+/* Right side (space 12 - 18 from right to left) */
+.board-space:nth-child(12){
+  grid-row: 6;
+  grid-column: 7;
+}
+
+.board-space:nth-child(13){
+  grid-row: 6;
+  grid-column: 6;
+}
+
+.board-space:nth-child(14){
+  grid-row: 6;
+  grid-column: 5;
+}
+
+.board-space:nth-child(15){
+  grid-row: 6;
+  grid-column: 4;
+}
+
+.board-space:nth-child(16){
+  grid-row: 6;
+  grid-column: 3;
+}
+
+.board-space:nth-child(17){
+  grid-row: 6;
+  grid-column: 2;
+}
+
+.board-space:nth-child(18){
+  grid-row: 6;
+  grid-column: 1;
+}
+
+
+/* Right side (space 19 - 22 from bottom to top) */
+.board-space:nth-child(19){
+  grid-row: 5;
+  grid-column: 1;
+}
+
+.board-space:nth-child(20){
+  grid-row: 4;
+  grid-column: 1;
+}
+
+.board-space:nth-child(21){
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.board-space:nth-child(22){
+  grid-row: 2;
+  grid-column: 1;
+}
+
+
+
+
+
+/* Good Space */
+
+.good-space-div {
+  border: 1px solid green;
+}
+
+.good-space-title {
+  /* color: green; */
+}
