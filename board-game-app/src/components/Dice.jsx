@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Dice = () => {
+
+
+
+const Dice = ({dice,setDice}) => {
   return (
-    <div>Dice</div>
+    <div>Dice Number: {dice}</div>
   )
 }
 

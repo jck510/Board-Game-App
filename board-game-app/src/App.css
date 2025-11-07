@@ -219,6 +219,26 @@
   border: 1px solid green;
 }
 
-.good-space-title {
-  /* color: green; */
+.great-space-title {
+  background: darkgreen;
+}
+
+.bad-space-title {
+  background: green;
+}
+
+.chance-space-title {
+  background: yellow;
+}
+
+.risk-space-title {
+  background: orange;
+}
+
+.bad-space-title {
+  background: red;
+}
+
+.start-space-title {
+  background: white;
 }
