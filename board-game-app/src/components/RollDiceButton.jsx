@@ -1,44 +1,37 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Dice from './Dice';
-import { useState } from 'react';
-
-
+import { setDiceNumber, setUserPosition } from '../features/game/gameSlice';
+import Player from './Player';
 
 const RollDiceButton = () => {
+  const dispatch = useDispatch();
+  const userPosition = useSelector((state) => state.game.userPosition);
+  const totalSpaces = useSelector((state) => state.game.totalSpaces);
 
-  const [diceNumber, setDiceNumber] = useState(6);
-  const [userPosition, setUserPosition] = useState(0)
+  const rollDiceAndMove = () => {
+    // Roll a random number between 1 and 6
+    const roll = Math.floor(Math.random() * 6) + 1;
+    dispatch(setDiceNumber(roll)); // update Redux diceNumber
 
-  const RollDice = () =>{
-    
-    let currentdiceNumber = Math.floor(Math.random() * (6) + 1); // rolls the dice between 1 and 6
+    // Animate movement across the board
+    let currentPos = userPosition;
 
-    setDiceNumber(currentdiceNumber);
-    diceTravel(currentdiceNumber);
-  }
-
-
-  const diceTravel = (spacesMoved) => {
-    const totalSpaces = 22; // The total amount of spaces on the board is 22 (0 - 21)
-    let currentPos = userPosition; // current position is where the previous position left off and will be updated in real time
-
-    // For each step starting with the first
-    for (let step = 1; step <= spacesMoved; step++) {
+    for (let step = 1; step <= roll; step++) {
       setTimeout(() => {
-        currentPos = (currentPos + 1) % totalSpaces; // The current position gets updated with the next step and accounts for when it loops around the board (total spaces)
-        setUserPosition(currentPos); // updates the state of the User's position each iteration
-      }, step * 750);
+        currentPos = (currentPos + 1) % totalSpaces;
+        dispatch(setUserPosition(currentPos));
+      }, step * 750); // 750ms per step
     }
   };
 
-
   return (
     <div>
-    <Dice dice={diceNumber}/>
-    <button onClick={RollDice}>Roll Dice!</button>
-    <p>User Position {userPosition}</p> {/* This line of code is for testing */}
+      <Dice />
+      <button onClick={rollDiceAndMove}>Roll Dice!</button>
+      <Player />
     </div>
-  )
-}
+  );
+};
 
-export default RollDiceButton
+export default RollDiceButton;

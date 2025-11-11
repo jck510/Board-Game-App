@@ -1,11 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 
 
 
-const Dice = ({dice,setDice}) => {
+const Dice = () => {
+
+  const diceNumber = useSelector((state) => state.game.diceNumber);
+
   return (
-    <div>Dice Number: {dice}</div>
+    <div>Dice Number: {diceNumber}</div>
   )
 }
 
