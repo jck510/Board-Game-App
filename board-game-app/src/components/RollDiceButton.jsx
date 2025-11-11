@@ -17,22 +17,19 @@ const RollDiceButton = () => {
     diceTravel(currentdiceNumber);
   }
 
+
   const diceTravel = (spacesMoved) => {
-    let newPosition = userPosition + spacesMoved;
+    const totalSpaces = 22; // The total amount of spaces on the board is 22 (0 - 21)
+    let currentPos = userPosition; // current position is where the previous position left off and will be updated in real time
 
-
-    for(let i = userPosition; i <= newPosition; i++){
+    // For each step starting with the first
+    for (let step = 1; step <= spacesMoved; step++) {
       setTimeout(() => {
-        setUserPosition(i);
-      }, (i - userPosition) * 750) //delays for 750 milliseconds
-      
-      
+        currentPos = (currentPos + 1) % totalSpaces; // The current position gets updated with the next step and accounts for when it loops around the board (total spaces)
+        setUserPosition(currentPos); // updates the state of the User's position each iteration
+      }, step * 750);
     }
-
-    //setUserPosition(newPosition);
-
-
-  }
+  };
 
 
   return (

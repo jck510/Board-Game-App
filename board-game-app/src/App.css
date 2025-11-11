@@ -215,8 +215,8 @@
 
 /* Good Space */
 
-.good-space-div {
-  border: 1px solid green;
+.good-space-title {
+  background: lightgreen;
 }
 
 .great-space-title {

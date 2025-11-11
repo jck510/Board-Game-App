@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BoardSpace from './BoardSpace'
 import CenterBoard from './CenterBoard'
 
@@ -29,6 +29,13 @@ let BoardSpaces = [
 ]
 
 const MainBoard = () => {
+
+
+  const [currentSpace, setCurrentSpace] = useState(0);
+  const [diceNumber, setDiceNumber] = useState(6);
+  const [userPosition, setUserPosition] = useState(0);
+  
+  
   return (
     <div>
         <div className='main-board-wrapper'>
@@ -38,7 +45,7 @@ const MainBoard = () => {
             ))}
         </div>
 
-        <CenterBoard />
+        <CenterBoard diceNumber={diceNumber} setDiceNumber={setDiceNumber} userPosition={userPosition} setUserPosition={setUserPosition}/>
         </div>
     </div>
   )

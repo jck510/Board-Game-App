@@ -14,7 +14,7 @@ const BoardSpace = ({spaceName, spaceType, location, currentSpace}) => {
         {spaceType == 'Start' && <div className='start-space-div'><h3 className='start-space-title'>{spaceName}</h3></div>}
         {spaceType == 'Chance' && <div className='chance-space-div'><h3 className='chance-space-title'>{spaceName}</h3></div>}
         {spaceType == 'Risk' && <div className='risk-space-div'><h3 className='risk-space-title'>{spaceName}</h3></div>}
-        
+        {currentSpace && <div>C</div>} {/* Current Space */}
     </div>
   )
 }
